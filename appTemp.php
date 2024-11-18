@@ -25,7 +25,9 @@ function matrizFechas (){
 
 for ($i = 0; $i < count($arraysTemps); $i++) {
     for ($j = 0; $j < count($arraysTemps); $j++){
-        echo " " . $arraysTemps[$i][$j];
+        
+        
+        
     };
     echo "\n";
 };
