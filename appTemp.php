@@ -23,11 +23,15 @@ function matrizFechas (){
 };
     $arraysTemps = matrizFechas();
 
-for ($i = 0; $i <= count($arraysTemps); $i++) {
-    for ($j = 0; $j <= count($arraysTemps); $j++){
+function mostrarMatriz ($arraysTemps){
+
+for ($i = 0; $i < 10; $i++) {
+    for ($j = 0; $j < 12; $j++){
         echo " " . $arraysTemps[$i][$j];
     };
     echo "\n";
+};
+
 };
 
 
