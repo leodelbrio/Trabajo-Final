@@ -12,7 +12,7 @@ function matrizFechas (){
         array(33, 30, 27, 22, 19, 13, 11, 15, 18, 21, 26, 31),
         array(34, 32, 29, 21, 18, 14, 12, 16, 18, 21, 27, 32),
         array(33, 31, 28, 22, 18, 13, 11, 14, 17, 22, 26, 31),
-        array(32, 30, 28, 22, 17, 12, 9, 13, 16, 20, 24, 30),
+        array(32, 30, 28, 22, 17, 12,  9, 13, 16, 20, 24, 30),
         array(32, 30, 27, 23, 19, 13, 10, 12, 16, 22, 27, 29),
         array(31, 29, 28, 21, 19, 13, 10, 12, 16, 22, 27, 29),
         array(30, 28, 26, 20, 16, 12, 11, 13, 17, 21, 28, 30),
@@ -20,22 +20,14 @@ function matrizFechas (){
         array(32, 30, 27, 20, 16, 13, 13, 15, 19, 23, 28, 31)
     );
     return $matrizPrincipal;
-}
-    $arraysTemps = matrisFechas();
-    echo $arraysTemps[2][11];
-
-
-
-
-//Matris de las temperaturas 
-function matrisFechas (){
-
 };
+    $arraysTemps = matrizFechas();
 
 for ($i = 0; $i < count($arraysTemps); $i++) {
-    for ($j = 0; $j <count($arraysTemps[0]); $j++){
-        echo [$i],[$j];
+    for ($j = 0; $j < count($arraysTemps); $j++){
+        echo " " . $arraysTemps[$i][$j];
     };
+    echo "\n";
 };
 
 
