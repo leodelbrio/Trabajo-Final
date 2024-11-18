@@ -9,4 +9,11 @@ function matrisFechas (){
 
 };
 
+for ($i = 0; $i < count($arraysTemps); $i++) {
+    for ($j = 0; $j <count($arraysTemps[0]); $j++){
+        echo [$i],[$j];
+    };
+};
+
+
 ?>
