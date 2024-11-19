@@ -44,6 +44,15 @@ function mostrarMatrizCompleta ($arraysTemps){
         echo "\n";
     };
 };
+
+function temperaturaPedida ($arraysTemps, $anio, $mes){
+    /**PUNTO D */
+    $colum = $anio - 2014;
+    $temPedida = $arraysTemps [$colum][$mes];
+
+    return $temPedida;
+};
+
 function mostrarMatrizAnio ($arraysTemps, $anio){
     /**PUNTO E */
     $colum = $anio - 2014;
@@ -111,7 +120,7 @@ function primavera(){
 }
 function invierno(){
     /**PUNTO */
-    $matrizInvernal = arary(
+    $matrizInvernal = array(
         array(12, 11, 17),
         array(10, 12, 16),
         array(11, 13, 17),
