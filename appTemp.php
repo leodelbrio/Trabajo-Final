@@ -21,6 +21,15 @@ function matrizFechas (){
     );
     return $matrizPrincipal;
 };
+
+function matrizManual ($arrayAuto, $anio, $mes, $temp){
+    $colum = $anio - 2014;
+    $arrayAuto [$colum][$mes] =  $temp;
+    
+    return $arrayAuto;
+};
+
+
     $arraysTemps = matrizFechas();
 
 function mostrarMatriz ($arraysTemps){
