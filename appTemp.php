@@ -6,7 +6,9 @@ Para ello se almacenan los valores de temperaturas en un arreglo bidimensional (
 
 //Matris de las temperaturas 
 function matrizFechas (){
-
+/**Funcion para "cargar" la matriz completa con las temperaturas.
+ * Entero arreglo
+ */
     $matrizPrincipal = array(
         array(30, 28, 26, 22, 18, 12, 10, 14, 17, 20, 25, 29),
         array(33, 30, 27, 22, 19, 13, 11, 15, 18, 21, 26, 31),
@@ -30,7 +32,7 @@ function matrizManual ($arrayAuto, $anio, $mes, $temp){
     return $arrayAuto;
 };
 
-function mostrarMatriz ($arraysTemps){
+function mostrarMatrizCompleta ($arraysTemps){
 
     for ($i = 0; $i < 10; $i++) {
         for ($j = 0; $j < 12; $j++){
@@ -39,6 +41,29 @@ function mostrarMatriz ($arraysTemps){
         echo "\n";
     };
 };
+function mostrarMatrizAnio ($arraysTemps, $anio){
+    $colum = $anio - 2014;
+        for ($j = 0; $j < 12; $j++){
+            echo " " . $arraysTemps[$colum][$j];
+        };
+        echo "\n";
+    };
+
+function mostrarMatrizMes ($arraysTemps, $mes){
+    $suma = 0;
+    for ($j = 0; $j < 10; $j++){
+        echo " " . $arraysTemps[$j][$$mes];
+        $suma = $suma + $arraysTemps[$j][$$mes];
+    };
+    $suma = $suma / 10;
+    echo "\n";
+    echo "El promedio es: ". $suma. "°.";
+};
+
+function tempMaxYMin ($arraysTemps, $anio, $mes){
+    
+}
+
 
 
 ?>
