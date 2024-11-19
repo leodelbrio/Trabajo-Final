@@ -23,6 +23,13 @@ function matrizFechas (){
 };
     $arraysTemps = matrizFechas();
 
+function matrizManual ($arrayAuto, $anio, $mes, $temp){
+    $colum = $anio - 2014;
+    $arrayAuto [$colum][$mes] =  $temp;
+
+    return $arrayAuto;
+};
+
 function mostrarMatriz ($arraysTemps){
 
     for ($i = 0; $i < 10; $i++) {
