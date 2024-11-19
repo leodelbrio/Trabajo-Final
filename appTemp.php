@@ -26,7 +26,7 @@ function matrizFechas (){
 };
     $arraysTemps = matrizFechas();
 
-function matrizManual ($arraysTemps, $anio, $mes, $temp){
+function matrizManual ($arrayAuto, $anio, $mes, $temp){
     /**PUNTO B */
     $colum = $anio - 2014;
     $arraysTemps [$colum][$mes] =  $temp;
@@ -68,13 +68,29 @@ function mostrarMatrizMes ($arraysTemps, $mes){
 function tempMaxYMin ($arraysTemps, $anio, $mes){
     /**PUNTO G */
     $min = 1000; $max = 0;
+    $colum = $anio - 2014;
+    $countMin = 0; $countMax = 0;
     for ($i = 0; $i < 10; $i++) {
         for ($j = 0; $j < 12; $j++){
             echo " " . $arraysTemps[$i][$j];
-            if ()
+            if ($arraysTemps[$i][$j] < $min && $countMin < 1){
+                $min = $arraysTemps[$i][$j];
+                $anio = $i; $mes = $j;
+                
+            }
+            if ($arraysTemps[$i][$j] > $max && $countMax < 1){
+                $max = $arraysTemps[$i][$j];
+                $anioMax = $arraysTemps[$i][$j];
+                $anioMax = $i; $mesMax = $j;
+                
+            }
         };
         echo "\n";
     };
+    $anio = $anio + 2013; 
+    echo ("El minimo es: ". $min. " del año ". $anio ." del mes ". $mes);
+    $anioMax = $anioMax + 2013;
+    echo("El maximo es :. ". $max. "del año ". $anioMax. " del mes ". $mesMax);
 }
 
 
