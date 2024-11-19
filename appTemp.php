@@ -8,6 +8,7 @@ Para ello se almacenan los valores de temperaturas en un arreglo bidimensional (
 function matrizFechas (){
 /**Funcion para "cargar" la matriz completa con las temperaturas.
  * Entero arreglo
+ * PUNTO A
  */
     $matrizPrincipal = array(
         array(30, 28, 26, 22, 18, 12, 10, 14, 17, 20, 25, 29),
@@ -26,6 +27,7 @@ function matrizFechas (){
     $arraysTemps = matrizFechas();
 
 function matrizManual ($arrayAuto, $anio, $mes, $temp){
+    /**PUNTO B */
     $colum = $anio - 2014;
     $arrayAuto [$colum][$mes] =  $temp;
 
@@ -33,6 +35,7 @@ function matrizManual ($arrayAuto, $anio, $mes, $temp){
 };
 
 function mostrarMatrizCompleta ($arraysTemps){
+    /**PUNTO C */
 
     for ($i = 0; $i < 10; $i++) {
         for ($j = 0; $j < 12; $j++){
@@ -42,6 +45,7 @@ function mostrarMatrizCompleta ($arraysTemps){
     };
 };
 function mostrarMatrizAnio ($arraysTemps, $anio){
+    /**PUNTO E */
     $colum = $anio - 2014;
         for ($j = 0; $j < 12; $j++){
             echo " " . $arraysTemps[$colum][$j];
@@ -50,6 +54,7 @@ function mostrarMatrizAnio ($arraysTemps, $anio){
     };
 
 function mostrarMatrizMes ($arraysTemps, $mes){
+    /**PUNTO F */
     $suma = 0;
     for ($j = 0; $j < 10; $j++){
         echo " " . $arraysTemps[$j][$$mes];
@@ -61,7 +66,15 @@ function mostrarMatrizMes ($arraysTemps, $mes){
 };
 
 function tempMaxYMin ($arraysTemps, $anio, $mes){
-    
+    /**PUNTO G */
+    $min = 1000; $max = 0;
+    for ($i = 0; $i < 10; $i++) {
+        for ($j = 0; $j < 12; $j++){
+            echo " " . $arraysTemps[$i][$j];
+            if ()
+        };
+        echo "\n";
+    };
 }
 
 
