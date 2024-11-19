@@ -26,12 +26,12 @@ function matrizFechas (){
 };
     $arraysTemps = matrizFechas();
 
-function matrizManual ($arrayAuto, $anio, $mes, $temp){
+function matrizManual ($arraysTemps, $anio, $mes, $temp){
     /**PUNTO B */
     $colum = $anio - 2014;
-    $arrayAuto [$colum][$mes] =  $temp;
+    $arraysTemps [$colum][$mes] =  $temp;
 
-    return $arrayAuto;
+    return $arraysTemps;
 };
 
 function mostrarMatrizCompleta ($arraysTemps){
