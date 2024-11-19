@@ -26,7 +26,7 @@ function matrizFechas (){
 };
     $arraysTemps = matrizFechas();
 
-function matrizManual ($arrayAuto, $anio, $mes, $temp){
+function matrizManual ($arraysTemps, $anio, $mes, $temp){
     /**PUNTO B */
     $colum = $anio - 2014;
     $arraysTemps [$colum][$mes] =  $temp;
@@ -92,7 +92,34 @@ function tempMaxYMin ($arraysTemps, $anio, $mes){
     $anioMax = $anioMax + 2013;
     echo("El maximo es :. ". $max. "del año ". $anioMax. " del mes ". $mesMax);
 }
-
+function primavera(){
+    /**PUNTO H */
+    $matrizPrimavera = array(
+        array(20, 25, 29),
+        array(21, 26, 31),
+        array(21, 27, 32),
+        array(22, 26, 31),
+        array(20, 24, 30),
+        array(23, 25, 29),
+        array(22, 27, 29),
+        array(21, 28, 30),
+        array(22, 26, 30),
+        array(23, 28, 31)
+    );
+    echo mostrarMatrizCompleta($matrizPrimavera);
+    
+}
+function invierno(){
+    /**PUNTO */
+    $matrizInvernal = arary(
+        array(12, 11, 17),
+        array(10, 12, 16),
+        array(11, 13, 17),
+        array(11, 15, 18),
+        array(13, 15, 19)
+    );
+    echo mostrarMatrizCompleta($matrizInvernal);
+}
 
 
 ?>
