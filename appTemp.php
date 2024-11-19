@@ -133,6 +133,7 @@ function invierno(){
 };
 
 
+while ($i != 9) {
 echo "0 - Realizar una carga automática de la matriz de temperaturas." . "\n";
 echo "1 - Realizar una carga manual de la matriz de temperaturas." . "\n";
 echo "2 - Mostrar el contenido de la matriz por filas y columnas." . "\n";
@@ -147,7 +148,6 @@ echo "9 - Salir del programa." . "\n";
 $i = trim(fgets(STDIN));
 
 
-while ($i != 9) {
     echo "Cargando";
     for ($t = 0; $t < 5; $t++) {
         echo ".";
