@@ -26,14 +26,17 @@ function matrizFechas (){
 };
     $arraysTemps = matrizFechas();
 
-function matrizManual ($arraysTemps, $anio, $mes, $temp){
+function matrizManual ($arraysTemps){
     /**PUNTO B */
-    $colum = $anio - 2014;
-    $arraysTemps [$colum][$mes] =  $temp;
-
+    for ($i = 0; $i < 10; $i++) {
+        for ($j = 0; $j < 12; $j++){
+            echo ("Ingrese la temperatura para el año ". $i + 2014 . " y el mes ". $j + 1 . ". \n");
+            $temp = trim(fgets(STDIN));
+            $arraysTemps[$i][$j] = $temp; 
+        }
+    };
     return $arraysTemps;
-};
-
+}
 function mostrarMatrizCompleta ($arraysTemps){
     /**PUNTO C */
 
@@ -74,14 +77,13 @@ function mostrarMatrizMes ($arraysTemps, $mes){
     echo "El promedio es: ". $suma. "°.";
 };
 
-function tempMaxYMin ($arraysTemps, $anio, $mes){
+function tempMaxYMin ($arraysTemps){
     /**PUNTO G */
     $min = 1000; $max = 0;
-    $colum = $anio - 2014;
     $countMin = 0; $countMax = 0;
+    $anio = 0; $mes = 0;
     for ($i = 0; $i < 10; $i++) {
         for ($j = 0; $j < 12; $j++){
-            echo " " . $arraysTemps[$i][$j];
             if ($arraysTemps[$i][$j] < $min && $countMin < 1){
                 $min = $arraysTemps[$i][$j];
                 $anio = $i; $mes = $j;
@@ -89,17 +91,16 @@ function tempMaxYMin ($arraysTemps, $anio, $mes){
             }
             if ($arraysTemps[$i][$j] > $max && $countMax < 1){
                 $max = $arraysTemps[$i][$j];
-                $anioMax = $arraysTemps[$i][$j];
                 $anioMax = $i; $mesMax = $j;
                 
             }
         };
         echo "\n";
     };
-    $anio = $anio + 2013; 
-    echo ("El minimo es: ". $min. " del año ". $anio ." del mes ". $mes);
-    $anioMax = $anioMax + 2013;
-    echo("El maximo es :. ". $max. "del año ". $anioMax. " del mes ". $mesMax);
+    $anio = $anio + 2014; 
+    echo ("\nEl minimo es: ". $min. " grados del año ". $anio ." del mes ". $mes + 1);
+    $anioMax = $anioMax + 2014;
+    echo("\nEl maximo es: ". $max. " grados del año ". $anioMax. " del mes ". $mesMax + 1 . "\n");
 }; 
 
 function primavera(){
@@ -159,13 +160,7 @@ $i = trim(fgets(STDIN));
             echo "Los datos fueron cargados correctamente";
             break;
         case 1:
-            echo "Ingrese anio";
-            $anio = trim(fgets(STDIN));
-            echo "Ingrese mes";
-            $mes = trim(fgets(STDIN));
-            echo "Ingrese temperatura que desea ingresar";
-            $temp = trim(fgets(STDIN));
-            $arrayFechaCambio = matrizManual($arraysTemps, $anio, $mes, $temp);
+            $arrayFechaCambio = matrizManual($arraysTemps);
             echo mostrarMatrizCompleta($arrayFechaCambio);
             break;
         case 2:
@@ -190,11 +185,7 @@ $i = trim(fgets(STDIN));
             echo mostrarMatrizMes($arraysTemps, $mes);
             break;
         case 6:
-            echo "Ingrese anio";
-            $anio = trim(fgets(STDIN));
-            echo "Ingrese mes";
-            $mes = trim(fgets(STDIN));
-            echo tempMaxYMin($arraysTemps, $anio, $mes);
+            echo tempMaxYMin($arraysTemps);
             break;
         case 7: 
             echo primavera();
