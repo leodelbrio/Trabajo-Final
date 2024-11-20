@@ -69,7 +69,7 @@ function mostrarMatrizMes ($arraysTemps, $mes){
     /**PUNTO F */
     $suma = 0;
     for ($j = 0; $j < 10; $j++){
-        echo " " . $arraysTemps[$j][$mes];
+        echo " " . $arraysTemps[$j][$mes - 1];
         $suma = $suma + $arraysTemps[$j][$mes];
     };
     $suma = $suma / 10;
@@ -103,40 +103,31 @@ function tempMaxYMin ($arraysTemps){
     echo("\nEl maximo es: ". $max. " grados del año ". $anioMax. " del mes ". $mesMax + 1 . "\n");
 }; 
 
-function primavera(){
+function primavera($arraysTemps){
     /**PUNTO H */
-    $matrizPrimavera = array(
-        array(20, 25, 29),
-        array(21, 26, 31),
-        array(21, 27, 32),
-        array(22, 26, 31),
-        array(20, 24, 30),
-        array(23, 25, 29),
-        array(22, 27, 29),
-        array(21, 28, 30),
-        array(22, 26, 30),
-        array(23, 28, 31)
-    );
-    echo mostrarMatrizCompleta($matrizPrimavera) . "\n";
-    
+
+    for ($i = 0; $i < 10; $i++) {
+        for ($j = 9; $j < 12; $j++){
+            echo " " . $arraysTemps[$i][$j];
+        };
+        echo "\n";
+    };    
 };
 
-function invierno(){
+function invierno($arraysTemps){
     /**PUNTO I*/
-    $matrizInvernal = array(
-        array(12, 11, 17),
-        array(10, 12, 16),
-        array(11, 13, 17),
-        array(11, 15, 18),
-        array(13, 15, 19)
-    );
-    echo mostrarMatrizCompleta($matrizInvernal) . "\n";
+    for ($i = 5; $i < 10; $i++) {
+        for ($j = 6; $j < 9; $j++){
+            echo " " . $arraysTemps[$i][$j];
+        };
+        echo "\n";
+    }; 
 };
 
 $s = 0;
 
 while ($s != 11) {
-echo "1 - Realizar una carga automática de la matriz de temperaturas." . "\n";
+echo "\n" . "1 - Realizar una carga automática de la matriz de temperaturas." . "\n";
 echo "2 - Realizar una carga manual de la matriz de temperaturas." . "\n";
 echo "3 - Mostrar el contenido de la matriz por filas y columnas." . "\n";
 echo "4 - Mostrar, dado un año y un mes, el valor de temperatura correspondiente." . "\n";
@@ -192,10 +183,10 @@ $s = trim(fgets(STDIN));
             echo tempMaxYMin($arraysTemps);
             break;
         case 8: 
-            echo primavera();
+            echo primavera($arraysTemps);
             break;
         case 9:
-            echo invierno();    
+            echo invierno($arraysTemps);    
             break;
         case 10:
             echo matrizCompleta ();
