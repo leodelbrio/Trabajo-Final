@@ -69,8 +69,8 @@ function mostrarMatrizMes ($arraysTemps, $mes){
     /**PUNTO F */
     $suma = 0;
     for ($j = 0; $j < 10; $j++){
-        echo " " . $arraysTemps[$j][$$mes];
-        $suma = $suma + $arraysTemps[$j][$$mes];
+        echo " " . $arraysTemps[$j][$mes];
+        $suma = $suma + $arraysTemps[$j][$mes];
     };
     $suma = $suma / 10;
     echo "\n";
@@ -135,29 +135,33 @@ function invierno(){
 
 $i = 0;
 
-while ($i != 9) {
+while ($i != 10) {
 echo "0 - Realizar una carga automática de la matriz de temperaturas." . "\n";
 echo "1 - Realizar una carga manual de la matriz de temperaturas." . "\n";
 echo "2 - Mostrar el contenido de la matriz por filas y columnas." . "\n";
 echo "3 - Mostrar, dado un año y un mes, el valor de temperatura correspondiente." . "\n";
 echo "4 - Mostrar para un determinado año, las temperaturas de todos los meses." . "\n";
 echo "5 - Mostrar para un mes determinado, las temperaturas de todos los años y el promedio." . "\n";
-echo "6 - Primavera" . "\n";
-echo "7 - Ultimos 5 años de invierno." . "\n";
-echo "8 - Temp matriz invierno primavera" . "\n";
-echo "9 - Salir del programa." . "\n";
+echo "6 - Hallar las temperaturas máximas y mínimas, indicando año y mes a los que corresponden." . "\n";
+echo "7 - Primavera." . "\n";
+echo "8 - Invierno" . "\n";
+echo "9 - Matriz asos" . "\n";
+echo "10 - Salir del programa" . "\n";
 
 $i = trim(fgets(STDIN));
 
 
     echo "Cargando";
-    for ($t = 0; $t < 5; $t++) {
+/*    for ($t = 0; $t < 5; $t++) {
         echo ".";
         sleep(1); 
-    };   
+    };   */
+
+    echo "\n";
+
     switch ($i) {
         case 0:
-            echo "Los datos fueron cargados correctamente";
+            echo "Los datos fueron cargados correctamente!" . "\n";
             break;
         case 1:
             $arrayFechaCambio = matrizManual($arraysTemps);
@@ -194,10 +198,12 @@ $i = trim(fgets(STDIN));
             echo invierno();    
             break;
         case 9:
-            $i = 9;
             break;
+        case 10:
+            $i = 10;
+            break;    
     };
 };
 
-
+        
 ?>
