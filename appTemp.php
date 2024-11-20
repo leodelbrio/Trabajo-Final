@@ -30,7 +30,7 @@ function matrizManual ($arraysTemps){
     /**PUNTO B */
     for ($i = 0; $i < 10; $i++) {
         for ($j = 0; $j < 12; $j++){
-            echo ("Ingrese la temperatura para el año ". $i + 2014 . " y el mes ". $j + 1 . ". \n");
+            echo ("Ingrese la temperatura para el año: ". $i + 2014 . " y el mes: ". $j + 1 . ". \n");
             $temp = trim(fgets(STDIN));
             $arraysTemps[$i][$j] = $temp; 
         }
@@ -74,7 +74,7 @@ function mostrarMatrizMes ($arraysTemps, $mes){
     };
     $suma = $suma / 10;
     echo "\n";
-    echo "El promedio es: ". $suma. "°.";
+    echo "El promedio es: ". $suma. "°." . "\n";
 };
 
 function tempMaxYMin ($arraysTemps){
@@ -98,7 +98,7 @@ function tempMaxYMin ($arraysTemps){
         echo "\n";
     };
     $anio = $anio + 2014; 
-    echo ("\nEl minimo es: ". $min. " grados del año ". $anio ." del mes ". $mes + 1);
+    echo ("\nEl minimo es: ". $min. " grados del año ". $anio ." del mes ". $mes + 1 . "\n");
     $anioMax = $anioMax + 2014;
     echo("\nEl maximo es: ". $max. " grados del año ". $anioMax. " del mes ". $mesMax + 1 . "\n");
 }; 
@@ -117,12 +117,12 @@ function primavera(){
         array(22, 26, 30),
         array(23, 28, 31)
     );
-    echo mostrarMatrizCompleta($matrizPrimavera);
+    echo mostrarMatrizCompleta($matrizPrimavera) . "\n";
     
 };
 
 function invierno(){
-    /**PUNTO */
+    /**PUNTO I*/
     $matrizInvernal = array(
         array(12, 11, 17),
         array(10, 12, 16),
@@ -130,23 +130,29 @@ function invierno(){
         array(11, 15, 18),
         array(13, 15, 19)
     );
-    echo mostrarMatrizCompleta($matrizInvernal);
+    echo mostrarMatrizCompleta($matrizInvernal) . "\n";
+};
+
+function matrizCompleta () {
+    $matrizAniosEstaciones = array 
+
+    echo $matrizAniosEstaciones;
 };
 
 $i = 0;
 
-while ($i != 10) {
-echo "0 - Realizar una carga automática de la matriz de temperaturas." . "\n";
-echo "1 - Realizar una carga manual de la matriz de temperaturas." . "\n";
-echo "2 - Mostrar el contenido de la matriz por filas y columnas." . "\n";
-echo "3 - Mostrar, dado un año y un mes, el valor de temperatura correspondiente." . "\n";
-echo "4 - Mostrar para un determinado año, las temperaturas de todos los meses." . "\n";
-echo "5 - Mostrar para un mes determinado, las temperaturas de todos los años y el promedio." . "\n";
-echo "6 - Hallar las temperaturas máximas y mínimas, indicando año y mes a los que corresponden." . "\n";
-echo "7 - Primavera." . "\n";
-echo "8 - Invierno" . "\n";
-echo "9 - Matriz asos" . "\n";
-echo "10 - Salir del programa" . "\n";
+while ($i != 11) {
+echo "1 - Realizar una carga automática de la matriz de temperaturas." . "\n";
+echo "2 - Realizar una carga manual de la matriz de temperaturas." . "\n";
+echo "3 - Mostrar el contenido de la matriz por filas y columnas." . "\n";
+echo "4 - Mostrar, dado un año y un mes, el valor de temperatura correspondiente." . "\n";
+echo "5 - Mostrar para un determinado año, las temperaturas de todos los meses." . "\n";
+echo "6 - Mostrar para un mes determinado, las temperaturas de todos los años y el promedio." . "\n";
+echo "7 - Hallar las temperaturas máximas y mínimas, indicando año y mes a los que corresponden." . "\n";
+echo "8 - Mostrar los datos de las primaveras." . "\n";
+echo "9 - Mostrar los datos de los ultimos cinco inviernos" . "\n";
+echo "10 - Mostrar conjunto de temperaturas." . "\n";
+echo "11 - Salir del programa" . "\n";
 
 $i = trim(fgets(STDIN));
 
@@ -160,17 +166,17 @@ $i = trim(fgets(STDIN));
     echo "\n";
 
     switch ($i) {
-        case 0:
+        case 1:
             echo "Los datos fueron cargados correctamente!" . "\n";
             break;
-        case 1:
+        case 2:
             $arrayFechaCambio = matrizManual($arraysTemps);
             echo mostrarMatrizCompleta($arrayFechaCambio);
             break;
-        case 2:
+        case 3:
             echo mostrarMatrizCompleta($arraysTemps);
             break;
-        case 3: 
+        case 4: 
             echo "Ingrese anio";
             $anio = trim(fgets(STDIN));
             echo "Ingrese mes";
@@ -178,29 +184,30 @@ $i = trim(fgets(STDIN));
             $tempMostrar = temperaturaPedida($arraysTemps, $anio, $mes);
             echo "La temperatura es: " . $tempMostrar;
             break;
-        case 4: 
+        case 5: 
             echo "Ingrese anio";
             $anio = trim(fgets(STDIN));
             echo mostrarMatrizAnio($arraysTemps, $anio);
             break;
-        case 5: 
+        case 6: 
             echo "Ingrese mes";
             $mes = trim(fgets(STDIN));
             echo mostrarMatrizMes($arraysTemps, $mes);
             break;
-        case 6:
+        case 7:
             echo tempMaxYMin($arraysTemps);
             break;
-        case 7: 
+        case 8: 
             echo primavera();
             break;
-        case 8:
+        case 9:
             echo invierno();    
             break;
-        case 9:
-            break;
         case 10:
-            $i = 10;
+            echo matrizCompleta ();
+            break;
+        case 11:
+            $i = 11;
             break;    
     };
 };
