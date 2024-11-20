@@ -51,7 +51,7 @@ function mostrarMatrizCompleta ($arraysTemps){
 function temperaturaPedida ($arraysTemps, $anio, $mes){
     /**PUNTO D */
     $colum = $anio - 2014;
-    $temPedida = $arraysTemps [$colum][$mes];
+    $temPedida = $arraysTemps [$colum][$mes - 1 ];
 
     return $temPedida;
 };
@@ -60,7 +60,7 @@ function mostrarMatrizAnio ($arraysTemps, $anio){
     /**PUNTO E */
     $colum = $anio - 2014;
         for ($j = 0; $j < 12; $j++){
-            echo " " . $arraysTemps[$colum][$j];
+            echo " " . $arraysTemps[$colum][$j ];
         };
         echo "\n";
 };
@@ -133,13 +133,6 @@ function invierno(){
     echo mostrarMatrizCompleta($matrizInvernal) . "\n";
 };
 
-//function matrizCompleta () {
-//    $matrizAniosEstaciones = array 
-//
-//    echo $matrizAniosEstaciones;
-//};
-
-$s = 0;
 
 while ($s != 11) {
 echo "1 - Realizar una carga automática de la matriz de temperaturas." . "\n";
