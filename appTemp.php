@@ -177,20 +177,20 @@ $s = trim(fgets(STDIN));
             echo mostrarMatrizCompleta($arraysTemps);
             break;
         case 4: 
-            echo "Ingrese año: ";
+            echo "Ingrese año: " . "\n";
             $anio = trim(fgets(STDIN));
-            echo "Ingrese mes: ";
+            echo "Ingrese mes: " . "\n";
             $mes = trim(fgets(STDIN));
             $tempMostrar = temperaturaPedida($arraysTemps, $anio, $mes);
-            echo "La temperatura es: " . $tempMostrar;
+            echo "La temperatura es: " . $tempMostrar . "\n";
             break;
         case 5: 
-            echo "Ingrese año: ";
+            echo "Ingrese año: " . "\n";
             $anio = trim(fgets(STDIN));
             echo mostrarMatrizAnio($arraysTemps, $anio);
             break;
         case 6: 
-            echo "Ingrese mes: ";
+            echo "Ingrese mes: " . "\n";
             $mes = trim(fgets(STDIN));
             echo mostrarMatrizMes($arraysTemps, $mes);
             break;
