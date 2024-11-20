@@ -133,6 +133,7 @@ function invierno(){
     echo mostrarMatrizCompleta($matrizInvernal) . "\n";
 };
 
+$s = 0;
 
 while ($s != 11) {
 echo "1 - Realizar una carga automática de la matriz de temperaturas." . "\n";
