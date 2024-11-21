@@ -124,6 +124,16 @@ function invierno($arraysTemps){
     }; 
 };
 
+function mostrarTodo ($arraysTemps){
+    $matrizTemperaturas = array (
+        array ("Completo" . "\n" =>  mostrarMatrizCompleta ($arraysTemps)),
+        array ("Primavera" . "\n" => primavera($arraysTemps)),
+        array ("Invierno" . "\n" => invierno($arraysTemps)),
+    );
+
+    return $matrizTemperaturas;
+};
+
 $s = 0;
 
 while ($s != 11) {
@@ -189,7 +199,8 @@ $s = trim(fgets(STDIN));
             echo invierno($arraysTemps);    
             break;
         case 10:
-            echo matrizCompleta ();
+            $mostrarTodoTemp = mostrarTodo ($arraysTemps);
+            print_r($mostrarTodoTemp);
             break;
         case 11:
             $s = 11;
