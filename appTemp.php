@@ -49,46 +49,7 @@ function matrizManual ($arraysTemps){
 function mostrarMatrizCompleta ($arraysTemps){
     /**PUNTO C */
     $anioColum = 2013;
-    for($v = 0; $v < 12; $v++){
-        switch ($v){
-            case 0:
-                echo ("        ene ");
-                break;
-            case 1:
-                echo ("feb ");
-                break;
-            case 2:
-                echo ("mar ");
-                break;
-            case 3:
-                echo ("abr ");
-                break;
-            case 4:
-                echo ("may ");
-                break;
-            case 5:
-                echo ("jun ");
-                break;
-            case 6:
-                echo ("jul ");
-                break;
-            case 7:
-                echo ("ago ");
-                break;
-            case 8:
-                echo ("sep ");
-                break;
-            case 9:
-                echo ("oct ");
-                break;
-            case 10:
-                echo ("nov ");
-                break;
-            case 11:
-                echo ("dic \n");
-                break;
-                    }
-    }
+    echo ("        ene feb mar abr may jun jul ago sep oct nov dic\n");
     
     echo("      --------------------------------------------------\n");
     for ($i = 0; $i < 10; $i++) {
