@@ -140,7 +140,9 @@ function tempMaxYMin ($arraysTemps){
  * return vacio
 */
 function primavera(){
-    /**PUNTO H */
+    /**PUNTO H 
+     * Recorrer matriz peincipal y sacar los datos de ahi.
+    */
     $matrizPrimavera = array(
         array(20, 25, 29),
         array(21, 26, 31),
@@ -205,7 +207,7 @@ echo "10 - Mostrar conjunto de temperaturas." . "\n";
 echo "11 - Salir del programa" . "\n";
 
 $s = trim(fgets(STDIN));
-
+$s2 = 0;
 
     
 
@@ -214,28 +216,37 @@ $s = trim(fgets(STDIN));
     switch ($s) {
         case 1:
             echo "Cargando datos al sistema";
+            $s2 = 0;
     for ($t = 0; $t < 4; $t++) {
         echo ".";
         sleep(1); 
+
     };   
             echo "\nLos datos fueron cargados correctamente!" . "\n";
             break;
         case 2:
+            $s2 = 1;
             echo "Cargando la subida manual\n";
                 for ($t = 0; $t < 2; $t++) {
                 echo ".";
                 sleep(1); 
                 };   
             $arrayFechaCambio = matrizManual($arraysTemps);
-            echo mostrarMatrizCompleta($arrayFechaCambio);
             break;
         case 3:
+            
             echo "Cargando matriz\n";
                 for ($t = 0; $t < 2; $t++) {
                 echo ".";
                 sleep(1); 
+                if ($s2 = 0){
+                    $array = matrizFechas();
+                }
+                else if($s2 = 1){
+                    $array = matrizManual();
+                }
+                mostrarMatrizCompleta($array);
                 };   
-            echo mostrarMatrizCompleta($arraysTemps);
             break;
         case 4: 
             echo "Cargando\n";
