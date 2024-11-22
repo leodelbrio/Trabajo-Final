@@ -182,8 +182,7 @@ echo ("+-----------------------------------------------------------------------+
 |                                                                       |
 +-----------------------------------------------------------------------+
 ");
-$arraysTemps = matrizFechas();
-$array = 0;
+$array = matrizFechas();
 $s = 0;
 $s2 = 0;
 while ($s != 11) {
@@ -216,6 +215,7 @@ $s = trim(fgets(STDIN));
         case 1:
             echo "Cargando datos al sistema";
             $s2 = 0;
+            $array = matrizFechas();
         for ($t = 0; $t < 4; $t++) {
             echo ".";
             sleep(1); 
@@ -301,7 +301,7 @@ $s = trim(fgets(STDIN));
                 echo ".";
                 sleep(1); 
                 };   
-            echo primavera();
+            echo "\n" .primavera($array);
             break;
         case 9:
             echo "Cargando\n";
@@ -309,7 +309,7 @@ $s = trim(fgets(STDIN));
                 echo ".";
                 sleep(1); 
                 };   
-            echo invierno();    
+            echo invierno($array);    
             break;
         case 10:
             echo "Cargando\n";
@@ -317,7 +317,7 @@ $s = trim(fgets(STDIN));
                 echo ".";
                 sleep(1); 
                 };   
-            echo matrizCompleta ();
+            echo mostrarTodo ($array);
             break;
         case 11:
             echo "Cargando\n";
