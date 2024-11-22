@@ -139,38 +139,35 @@ function tempMaxYMin ($arraysTemps){
 /** Modulo para mostrar una temperatura dando el mes y el año
  * return vacio
  */
-function primavera(){
-    /**PUNTO H 
-     * Recorrer matriz peincipal y sacar los datos de ahi.
-     */
-    $matrizPrimavera = array(
-        array(20, 25, 29),
-        array(21, 26, 31),
-        array(21, 27, 32),
-        array(22, 26, 31),
-        array(20, 24, 30),
-        array(23, 25, 29),
-        array(22, 27, 29),
-        array(21, 28, 30),
-        array(22, 26, 30),
-        array(23, 28, 31)
-    );
-    echo mostrarMatrizCompleta($matrizPrimavera) . "\n";
-    
+function primavera($arraysTemps){
+    /**PUNTO H */
+
+    for ($i = 0; $i < 10; $i++) {
+        for ($j = 9; $j < 12; $j++){
+            echo " " . $arraysTemps[$i][$j];
+        };
+        echo "\n";
+    };    
 };
-/** Modulo para mostrar una temperatura dando el mes y el año
- * return vacio
- */
-function invierno(){
+
+function invierno($arraysTemps){
     /**PUNTO I*/
-    $matrizInvernal = array(
-        array(12, 11, 17),
-        array(10, 12, 16),
-        array(11, 13, 17),
-        array(11, 15, 18),
-        array(13, 15, 19)
+    for ($i = 5; $i < 10; $i++) {
+        for ($j = 6; $j < 9; $j++){
+            echo " " . $arraysTemps[$i][$j];
+        };
+        echo "\n";
+    }; 
+};
+
+function mostrarTodo ($arraysTemps){
+    $matrizTemperaturas = array (
+        array ("Completo" . "\n" =>  mostrarMatrizCompleta ($arraysTemps)),
+        array ("Primavera" . "\n" => primavera($arraysTemps)),
+        array ("Invierno" . "\n" => invierno($arraysTemps)),
     );
-    echo mostrarMatrizCompleta($matrizInvernal) . "\n";
+
+    return $matrizTemperaturas;
 };
 /**                             PROGRAMA PRINCIPAL
  * Programa para hacer "administracion" sobre temperaturas en la ciudad de Neuquen
