@@ -25,7 +25,6 @@ function matrizFechas (){
     );
     return $matrizPrincipal;
 };
-    $arraysTemps = matrizFechas();
 /**Modulo para hacer la carga de la matriz de forma matriz
  * @param Entero $arraysTemps[][]
  * return array
@@ -39,16 +38,17 @@ function matrizManual ($arraysTemps){
             $temp = trim(fgets(STDIN));
             if ($temp < -50 || $temp > 70){
                 while ($temp < -50 || $temp > 70){
-                echo("Ingrese una temperatura valida (Mayor a -50 y menor a 70): ");
-                $temp = trim(fgets(STDIN));
-            }
+                    echo("Deberia revisar sus facultades mentales. 
+                    Ingrese una temperatura valida (Mayor a -50 y menor a 70): ");
+                    $temp = trim(fgets(STDIN));
+                }
             }
             $arraysTemps[$i][$j] = $temp; 
         }
         
-        }
-        return $arraysTemps;
-    };
+    }
+    return $arraysTemps;
+};
 //**Modulo para mostrar una matriz determinada 
 //@param entero array
 //return vacio
@@ -69,33 +69,33 @@ function mostrarMatrizCompleta ($arraysTemps){
     };
     sleep(2);
 }
-/** Modulo para mostrar una temperatura dando el mes y el año
- * @param entero $anio, $mes, $arraysTemps
- * return array
-*/
+//** Modulo para mostrar una temperatura dando el mes y el año
+// @param entero $anio, $mes, $arraysTemps
+// return array
+
 function temperaturaPedida ($arraysTemps, $anio, $mes){
     /**PUNTO D */
     $colum = $anio - 2014;
     $temPedida = $arraysTemps [$colum][$mes - 1 ];
-
+    
     return $temPedida;
 };
 /** Modulo para mostrar las temperaturas dependiendo del año
- * @param entero $anio, $arraysTemps
+ // @param entero $anio, $arraysTemps
  * return vacio
-*/
+ */
 function mostrarMatrizAnio ($arraysTemps, $anio){
     /**PUNTO E */
     $colum = $anio - 2014;
-        for ($j = 0; $j < 12; $j++){
-            echo " " . $arraysTemps[$colum][$j ];
-        };
-        echo "\n";
+    for ($j = 0; $j < 12; $j++){
+        echo " " . $arraysTemps[$colum][$j ];
+    };
+    echo "\n";
 };
 /** Modulo para mostrar las temperaturas dependiendo del mes y sacar un promedio
- * @param entero  $mes, $arraysTemps
+ //  * @param ENTERO  $mes, $arraysTemps
  * return vacio
-*/
+ */
 function mostrarMatrizMes ($arraysTemps, $mes){
     /**PUNTO F */
     $suma = 0;
@@ -108,9 +108,9 @@ function mostrarMatrizMes ($arraysTemps, $mes){
     echo "El promedio es: ". $suma. "°." . "\n";
 };
 /** Modulo para mostrar una temperatura dando el mes y el año
- * @param entero $arraysTemps
+ // @param entero $arraysTemps
  * return vacio
-*/
+ */
 function tempMaxYMin ($arraysTemps){
     /**PUNTO G */
     $min = 1000; $max = 0;
@@ -129,8 +129,8 @@ function tempMaxYMin ($arraysTemps){
                 
             }
         };
-        echo "\n";
     };
+    echo "\n";
     $anio = $anio + 2014; 
     echo ("\nEl minimo es: ". $min. " grados del año ". $anio ." del mes ". $mes + 1 . "\n");
     $anioMax = $anioMax + 2014;
@@ -138,11 +138,11 @@ function tempMaxYMin ($arraysTemps){
 }; 
 /** Modulo para mostrar una temperatura dando el mes y el año
  * return vacio
-*/
+ */
 function primavera(){
     /**PUNTO H 
      * Recorrer matriz peincipal y sacar los datos de ahi.
-    */
+     */
     $matrizPrimavera = array(
         array(20, 25, 29),
         array(21, 26, 31),
@@ -160,7 +160,7 @@ function primavera(){
 };
 /** Modulo para mostrar una temperatura dando el mes y el año
  * return vacio
-*/
+ */
 function invierno(){
     /**PUNTO I*/
     $matrizInvernal = array(
@@ -175,39 +175,41 @@ function invierno(){
 /**                             PROGRAMA PRINCIPAL
  * Programa para hacer "administracion" sobre temperaturas en la ciudad de Neuquen
  * 
-*/
+ */
 
 
 
-    echo ("+-----------------------------------------------------------------------+
+echo ("+-----------------------------------------------------------------------+
 |                                                                       |
 |       Bienvenidos al programa de administracion meteorologica!        |
 |                                                                       |
 +-----------------------------------------------------------------------+
 ");
+$arraysTemps = matrizFechas();
+$array = 0;
 $s = 0;
-
+$s2 = 0;
 while ($s != 11) {
     echo "\n                            Yendo al menu";
     echo "\n                                  ";
     for ($t = 0; $t < 2; $t++) {
-    echo ".";
-    sleep(1); 
+        echo ".";
+        sleep(1); 
     };   
     echo "\n1 - Realizar una carga automática de la matriz de temperaturas." . "\n";
-echo "2 - Realizar una carga manual de la matriz de temperaturas." . "\n";
-echo "3 - Mostrar el contenido de la matriz por filas y columnas." . "\n";
-echo "4 - Mostrar, dado un año y un mes, el valor de temperatura correspondiente." . "\n";
-echo "5 - Mostrar para un determinado año, las temperaturas de todos los meses." . "\n";
-echo "6 - Mostrar para un mes determinado, las temperaturas de todos los años y el promedio." . "\n";
-echo "7 - Hallar las temperaturas máximas y mínimas, indicando año y mes a los que corresponden." . "\n";
+    echo "2 - Realizar una carga manual de la matriz de temperaturas." . "\n";
+    echo "3 - Mostrar el contenido de la matriz por filas y columnas." . "\n";
+    echo "4 - Mostrar, dado un año y un mes, el valor de temperatura correspondiente." . "\n";
+    echo "5 - Mostrar para un determinado año, las temperaturas de todos los meses." . "\n";
+    echo "6 - Mostrar para un mes determinado, las temperaturas de todos los años y el promedio." . "\n";
+    echo "7 - Hallar las temperaturas máximas y mínimas, indicando año y mes a los que corresponden." . "\n";
 echo "8 - Mostrar los datos de las primaveras." . "\n";
 echo "9 - Mostrar los datos de los ultimos cinco inviernos" . "\n";
 echo "10 - Mostrar conjunto de temperaturas." . "\n";
 echo "11 - Salir del programa" . "\n";
 
 $s = trim(fgets(STDIN));
-$s2 = 0;
+
 
     
 
@@ -217,9 +219,9 @@ $s2 = 0;
         case 1:
             echo "Cargando datos al sistema";
             $s2 = 0;
-    for ($t = 0; $t < 4; $t++) {
-        echo ".";
-        sleep(1); 
+        for ($t = 0; $t < 4; $t++) {
+            echo ".";
+            sleep(1); 
 
     };   
             echo "\nLos datos fueron cargados correctamente!" . "\n";
@@ -239,14 +241,15 @@ $s2 = 0;
                 for ($t = 0; $t < 2; $t++) {
                 echo ".";
                 sleep(1); 
-                if ($s2 = 0){
+            };
+                if ($s2 == 0){
                     $array = matrizFechas();
                 }
-                else if($s2 = 1){
-                    $array = matrizManual();
+                else if($s2 == 1){
+                    $array = $arrayFechaCambio;
                 }
                 mostrarMatrizCompleta($array);
-                };   
+                   
             break;
         case 4: 
             echo "Cargando\n";
@@ -258,7 +261,7 @@ $s2 = 0;
             $anio = trim(fgets(STDIN));
             echo "Ingrese mes (1-12): " . "\n";
             $mes = trim(fgets(STDIN));
-            $tempMostrar = temperaturaPedida($arraysTemps, $anio, $mes);
+            $tempMostrar = temperaturaPedida($array, $anio, $mes);
             echo "La temperatura es: " . $tempMostrar . "\n";
             break;
         case 5: 
@@ -269,7 +272,7 @@ $s2 = 0;
                 };   
                 echo "Ingrese año (2014-2023): " . "\n";
             $anio = trim(fgets(STDIN));
-            echo mostrarMatrizAnio($arraysTemps, $anio);
+            echo mostrarMatrizAnio($array, $anio);
             break;
         case 6: 
             echo "Cargando\n";
@@ -279,15 +282,21 @@ $s2 = 0;
                 };   
             echo "Ingrese mes (1-12): " . "\n";
             $mes = trim(fgets(STDIN));
-            echo mostrarMatrizMes($arraysTemps, $mes);
+            echo mostrarMatrizMes($array, $mes);
             break;
         case 7:
             echo "Cargando algoritmo\n";
                 for ($t = 0; $t < 2; $t++) {
                 echo ".";
                 sleep(1); 
-                };   
-            echo tempMaxYMin($arraysTemps);
+                }; 
+                if ($s2 == 0){
+                    $array = matrizFechas();
+                }
+                else if($s2 == 1){
+                    $array = $arrayFechaCambio;
+                }
+                tempMaxYMin($array);
             break;
         case 8: 
             echo "Cargando\n";
