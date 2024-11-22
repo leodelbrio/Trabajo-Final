@@ -136,9 +136,9 @@ function tempMaxYMin ($arraysTemps){
     $anioMax = $anioMax + 2014;
     echo("\nEl maximo es: ". $max. " grados del año ". $anioMax. " del mes ". $mesMax + 1 . "\n");
 }; 
-/** Modulo para mostrar una temperatura dando el mes y el año
- * return vacio
- */
+/** Modulo que muestra el conjunto de temperaturas de la primavera */
+// @param Entero $i, $j, $arrayTemps
+/** retorno vacio */
 function primavera($arraysTemps){
     /**PUNTO H */
 
@@ -149,7 +149,9 @@ function primavera($arraysTemps){
         echo "\n";
     };    
 };
-
+/** Modulo que muestra el conjunto de temperaturas de los ultimos cinco invernos */
+// @param Entero $i, $j, $arrayTemps
+/** retorno vacio */
 function invierno($arraysTemps){
     /**PUNTO I*/
     for ($i = 5; $i < 10; $i++) {
@@ -159,16 +161,23 @@ function invierno($arraysTemps){
         echo "\n";
     }; 
 };
-
+/** Modulo que muestra el conjunto de la matriz principal, invierno y primavera */
 function mostrarTodo ($arraysTemps){
-    $matrizTemperaturas = array (
-        array ("Completo" . "\n" =>  mostrarMatrizCompleta ($arraysTemps)),
-        array ("Primavera" . "\n" => primavera($arraysTemps)),
-        array ("Invierno" . "\n" => invierno($arraysTemps)),
-    );
+    $arrayConjunto = [
+        "Completo" => mostrarMatrizCompleta ($arraysTemps),
+        "Primavera" => primavera($arraysTemps),
+        "Invierno" => invierno($arraysTemps)
+    ];
 
-    return $matrizTemperaturas;
+    foreach ($arrayConjunto as $temps => $arrayConj) {
+        echo $temps . ": " . "\n"
+        foreach ($arrayConj as $corteDeAnio) {
+            echo implode (", " , $corteDeAnio) . "\n";
+        };
+        echo "\n";
+    };
 };
+
 /**                             PROGRAMA PRINCIPAL
  * Programa para hacer "administracion" sobre temperaturas en la ciudad de Neuquen
  * 
@@ -317,7 +326,7 @@ $s = trim(fgets(STDIN));
                 echo ".";
                 sleep(1); 
                 };   
-            echo mostrarTodo ($array);
+            echo mostrarTodo ($arraysTemps);
             break;
         case 11:
             echo "Cargando\n";
