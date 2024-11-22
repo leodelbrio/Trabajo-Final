@@ -169,13 +169,8 @@ function mostrarTodo ($arraysTemps){
         "Invierno" => invierno($arraysTemps)
     ];
 
-    foreach ($arrayConjunto as $temps => $arrayConj) {
-        echo $temps . ": " . "\n"
-        foreach ($arrayConj as $corteDeAnio) {
-            echo implode (", " , $corteDeAnio) . "\n";
-        };
-        echo "\n";
-    };
+return $arrayConjunto
+
 };
 
 /**                             PROGRAMA PRINCIPAL
@@ -326,7 +321,8 @@ $s = trim(fgets(STDIN));
                 echo ".";
                 sleep(1); 
                 };   
-            echo mostrarTodo ($arraysTemps);
+            $arrayMuestraAnual = mostrarTodo ($arraysTemps);
+            echo $arrayMuestraAnual
             break;
         case 11:
             echo "Cargando\n";
