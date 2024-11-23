@@ -209,34 +209,35 @@ echo "10 - Mostrar conjunto de temperaturas." . "\n";
 echo "11 - Salir del programa" . "\n";
 
 $s = trim(fgets(STDIN));
+if ($s >= 1 && $s <= 11 ){
 
 
     
 
-    echo "\n";
+        echo "\n";
 
-    switch ($s) {
-        case 1:
-            echo "Cargando datos al sistema";
-            $s2 = 0;
-            $array = matrizFechas();
-        for ($t = 0; $t < 4; $t++) {
-            echo ".";
-            sleep(1); 
-
-    };   
-            echo "\nLos datos fueron cargados correctamente!" . "\n";
-            break;
-        case 2:
-            $s2 = 1;
-            echo "Cargando la subida manual\n";
-                for ($t = 0; $t < 2; $t++) {
+        switch ($s) {
+            case 1:
+                echo "Cargando datos al sistema";
+                $s2 = 0;
+                $array = matrizFechas();
+            for ($t = 0; $t < 4; $t++) {
                 echo ".";
                 sleep(1); 
-                };   
-            $arrayFechaCambio = matrizManual($arraysTemps);
+
+            };   
+            echo "\nLos datos fueron cargados correctamente!" . "\n";
             break;
-        case 3:
+            case 2:
+                $s2 = 1;
+                echo "Cargando la subida manual\n";
+                for ($t = 0; $t < 2; $t++) {
+                    echo ".";
+                    sleep(1); 
+                };   
+                $arrayFechaCambio = matrizManual($arraysTemps);
+                break;
+            case 3:
             
             echo "Cargando matriz\n";
                 for ($t = 0; $t < 2; $t++) {
@@ -252,7 +253,7 @@ $s = trim(fgets(STDIN));
                 mostrarMatrizCompleta($array);
                    
             break;
-        case 4: 
+            case 4: 
             echo "Cargando\n";
                 for ($t = 0; $t < 2; $t++) {
                 echo ".";
@@ -265,7 +266,7 @@ $s = trim(fgets(STDIN));
             $tempMostrar = temperaturaPedida($array, $anio, $mes);
             echo "La temperatura es: " . $tempMostrar . "\n";
             break;
-        case 5: 
+            case 5: 
             echo "Cargando\n";
                 for ($t = 0; $t < 2; $t++) {
                 echo ".";
@@ -275,7 +276,7 @@ $s = trim(fgets(STDIN));
             $anio = trim(fgets(STDIN));
             echo mostrarMatrizAnio($array, $anio);
             break;
-        case 6: 
+            case 6: 
             echo "Cargando\n";
                 for ($t = 0; $t < 2; $t++) {
                 echo ".";
@@ -285,7 +286,7 @@ $s = trim(fgets(STDIN));
             $mes = trim(fgets(STDIN));
             echo mostrarMatrizMes($array, $mes);
             break;
-        case 7:
+            case 7:
             echo "Cargando algoritmo\n";
                 for ($t = 0; $t < 2; $t++) {
                 echo ".";
@@ -299,7 +300,7 @@ $s = trim(fgets(STDIN));
                 }
                 tempMaxYMin($array);
             break;
-        case 8: 
+            case 8: 
             echo "Cargando\n";
                 for ($t = 0; $t < 2; $t++) {
                 echo ".";
@@ -307,7 +308,7 @@ $s = trim(fgets(STDIN));
                 };   
             echo "\n" .primavera($array);
             break;
-        case 9:
+            case 9:
             echo "Cargando\n";
                 for ($t = 0; $t < 2; $t++) {
                 echo ".";
@@ -315,7 +316,7 @@ $s = trim(fgets(STDIN));
                 };   
             echo invierno($array);    
             break;
-        case 10:
+            case 10:
             echo "Cargando\n";
                 for ($t = 0; $t < 2; $t++) {
                 echo ".";
@@ -324,7 +325,7 @@ $s = trim(fgets(STDIN));
             $arrayMuestraAnual = mostrarTodo ($arraysTemps);
             echo $arrayMuestraAnual
             break;
-        case 11:
+            case 11:
             echo "Cargando\n";
                 for ($t = 0; $t < 2; $t++) {
                 echo ".";
@@ -332,7 +333,9 @@ $s = trim(fgets(STDIN));
                 };   
             $s = 11;
             break;    
-    };
+        };
+}else {
+    echo "Ingrese una opcion correcta!"
 };
 
         
