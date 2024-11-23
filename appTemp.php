@@ -209,6 +209,7 @@ echo "10 - Mostrar conjunto de temperaturas." . "\n";
 echo "11 - Salir del programa" . "\n";
 
 $s = trim(fgets(STDIN));
+
 if ($s >= 1 && $s <= 11 ){
 
 
@@ -263,8 +264,16 @@ if ($s >= 1 && $s <= 11 ){
             $anio = trim(fgets(STDIN));
             echo "Ingrese mes (1-12): " . "\n";
             $mes = trim(fgets(STDIN));
-            $tempMostrar = temperaturaPedida($array, $anio, $mes);
-            echo "La temperatura es: " . $tempMostrar . "\n";
+            if ($anio >= 2014 && <= 2023) {
+                if ($mes >= 1 && $mes <= 12) {
+                    $tempMostrar = temperaturaPedida($array, $anio, $mes);
+                    echo "La temperatura es: " . $tempMostrar . "\n";
+                }else {
+                    echo "Ingrese un mes valido!"
+                };
+            } else {
+                echo "Ingrese un año valido!"
+            };
             break;
             case 5: 
             echo "Cargando\n";
@@ -273,8 +282,12 @@ if ($s >= 1 && $s <= 11 ){
                 sleep(1); 
                 };   
                 echo "Ingrese año (2014-2023): " . "\n";
-            $anio = trim(fgets(STDIN));
-            echo mostrarMatrizAnio($array, $anio);
+                $anio = trim(fgets(STDIN));
+                if ($anio >= 2014 && $anio <= 2023) {
+                    echo mostrarMatrizAnio($array, $anio);    
+                } else {
+                    echo "Ingrese un año valido!"
+                };
             break;
             case 6: 
             echo "Cargando\n";
@@ -284,7 +297,11 @@ if ($s >= 1 && $s <= 11 ){
                 };   
             echo "Ingrese mes (1-12): " . "\n";
             $mes = trim(fgets(STDIN));
-            echo mostrarMatrizMes($array, $mes);
+            if ($mes >= 1 && $mes <= 12) {
+                echo mostrarMatrizMes($array, $mes);
+            }else {
+                echo "Ingrese un mes valido!"
+            };
             break;
             case 7:
             echo "Cargando algoritmo\n";
