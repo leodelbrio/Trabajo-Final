@@ -144,16 +144,15 @@ function tempMaxYMin ($arraysTemps){
     /**PUNTO G */
     //ENTERO $min, $max, $countMin, $countMax, $anio, $mes, $i, $j
     $min = 1000; $max = 0;
-    $countMin = 0; $countMax = 0;
     $anio = 0; $mes = 0;
     for ($i = 0; $i < 10; $i++) {
         for ($j = 0; $j < 12; $j++){
-            if ($arraysTemps[$i][$j] < $min && $countMin < 1){
+            if ($arraysTemps[$i][$j] < $min){
                 $min = $arraysTemps[$i][$j];
                 $anio = $i; $mes = $j;
                 
             }
-            if ($arraysTemps[$i][$j] > $max && $countMax < 1){
+            if ($arraysTemps[$i][$j] > $max){
                 $max = $arraysTemps[$i][$j];
                 $anioMax = $i; $mesMax = $j;
                 
