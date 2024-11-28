@@ -165,7 +165,46 @@ function tempMaxYMin ($arraysTemps){
     $anioMax = $anioMax + 2014;
     echo("\nEl maximo es: ". $max. " grados del año ". $anioMax. " del mes ". $mesMax + 1 . "\n");
 }; 
+function minimo($arraysTemps){
+    $anio = 0; $mes = 0; $min = 1000;
+    for ($i = 0; $i < 10; $i++){
+        for ($j = 0; $j < 12; $j++){
+            if ($arraysTemps[$i][$j] < $min){
+                $min = $arraysTemps[$i][$j];
+                $anio = $i;
+                $mes = $j;
+            }
+        }
+    }
+    $anio = $anio + 2014;
+    $matrizMin = [$min, $anio, $mes];
+    return $matrizMin;
+}
 
+function maximo($arraysTemps) {
+    $anio = 0; $mes = 0; $max = 0; 
+    for ($i = 0; $i < 10; $i++){
+        for ($j = 0; $j < 12; $j++){
+            if ($arraysTemps[$i][$j] > $max ){
+                $max = $arraysTemps[$i][$j];
+                $anio = $i;
+                $mes = $j;
+            }
+        }
+    } 
+    $anio = $anio + 2014;
+    $matrizMax = [$max, $anio, $mes];
+    return $matrizMax;
+};
+
+function minYmax ($arraysTemps) {
+    $minA = minimo($arraysTemps);
+    $maxA = maximo ($arraysTemps);
+
+    echo "\nLa temperatura minima es: " . $minA[0] . " del año: " . $minA[1] . " del mes: " . $minA[2] +1 ;
+    echo "\nLa temperatura maxima es: " . $maxA[0] . " del año: " . $maxA[1] . " del mes: " . $maxA[2] + 1;
+
+}
 /** Modulo que crea el array con el conjunto de temperaturas de la primavera */
 // @param Entero $arrayTemps[][]
 /** retorno array */
@@ -368,7 +407,7 @@ if ($s >= 1 && $s <= 11 ){
                     else if($s2 == 1){
                         $array = $arrayFechaCambio;
                     }
-                    tempMaxYMin($array);
+                    minYmax($array);
             break;
 
             case 8: 
@@ -409,7 +448,7 @@ if ($s >= 1 && $s <= 11 ){
                 echo ".";
                 sleep(1); 
                 };  
-            echo("Adios!");
+            echo("Adios!\n");
             sleep(2) ;
             $s = 11;
             break;    
