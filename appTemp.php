@@ -136,36 +136,12 @@ function mostrarMatrizMes ($arraysTemps, $mes){
     echo "El promedio es: ". $suma. "°." . "\n";
 };
 
-/** Modulo para mostrar una temperatura dando el mes y el año
+/** Modulo para encontrar la temperatura minima de un array
  // @param entero $arraysTemps
- * return vacio
+ * return array
  */
-function tempMaxYMin ($arraysTemps){
-    /**PUNTO G */
-    //ENTERO $min, $max, $countMin, $countMax, $anio, $mes, $i, $j
-    $min = 1000; $max = 0;
-    $anio = 0; $mes = 0;
-    for ($i = 0; $i < 10; $i++) {
-        for ($j = 0; $j < 12; $j++){
-            if ($arraysTemps[$i][$j] < $min){
-                $min = $arraysTemps[$i][$j];
-                $anio = $i; $mes = $j;
-                
-            }
-            if ($arraysTemps[$i][$j] > $max){
-                $max = $arraysTemps[$i][$j];
-                $anioMax = $i; $mesMax = $j;
-                
-            }
-        };
-    };
-    echo "\n";
-    $anio = $anio + 2014; 
-    echo ("\nEl minimo es: ". $min. " grados del año ". $anio ." del mes ". $mes + 1 . "\n");
-    $anioMax = $anioMax + 2014;
-    echo("\nEl maximo es: ". $max. " grados del año ". $anioMax. " del mes ". $mesMax + 1 . "\n");
-}; 
 function minimo($arraysTemps){
+    //ENTERO $anio, $mes, $min, $i, $j $matrizMin
     $anio = 0; $mes = 0; $min = 1000;
     for ($i = 0; $i < 10; $i++){
         for ($j = 0; $j < 12; $j++){
@@ -180,8 +156,11 @@ function minimo($arraysTemps){
     $matrizMin = [$min, $anio, $mes];
     return $matrizMin;
 }
-
+//Modulo para calcular la temperatura Maxima de un Array
+//@param ENTERO $arraysTemps
+//return array
 function maximo($arraysTemps) {
+    //ENTERO $anio, $mes, $max, $i, $j, $matrizMax
     $anio = 0; $mes = 0; $max = 0; 
     for ($i = 0; $i < 10; $i++){
         for ($j = 0; $j < 12; $j++){
@@ -196,8 +175,11 @@ function maximo($arraysTemps) {
     $matrizMax = [$max, $anio, $mes];
     return $matrizMax;
 };
-
+//Modulo para mostrar la temperatura minima y maxina de un array
+//@param ENTERO $arraysTemps
+//return vacio
 function minYmax ($arraysTemps) {
+    //ENTERO $minA, $maxA
     $minA = minimo($arraysTemps);
     $maxA = maximo ($arraysTemps);
 
